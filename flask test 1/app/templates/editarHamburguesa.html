@@ -1,0 +1,29 @@
+{% extends './layout.html' %}
+
+{% block title %} editar {% endblock %}
+
+{% block body %}
+
+<form action="/editarHamburguesapost" method="post">
+    <label for="nombre">nombre de la hamburguesa</label>
+    <input type="text" name="nombre" id="nombre" value="{{data.hamburguesa.nombre}}">
+    <label for="precio">precio de la hamburguesa</label>
+    <input type="number" name="precio" id="precio" value="{{data.hamburguesa.precio}}">
+    <label for="stock">stock de la hamburguesa</label>
+    <input type="number" name="stock" id="stock" value="{{data.hamburguesa.stock}}">
+    <label for="tipoDeHamburguesa"> tipo de hamburguesa</label>
+    <select name="tipoDeHamburguesa" id="tipoDeHamburguesa">
+        {% if data.hamburguesa.tipoDeHamburguesa == "carne" %}
+            <option value="carne"> carne </option>
+            <option value="pollo"> pollo </option>
+        {% elif data.hamburguesa.tipoDeHamburguesa == "pollo" %}
+            <option value="pollo"> pollo </option>
+            <option value="carne"> carne </option>
+        {% endif %}
+    </select>
+    <input type="reset" value="reset">
+    <input type="submit" value="submit">
+    <input type="hidden" name="id" id="id" value="{{data.hamburguesa.id}}">
+</form>
+    
+{% endblock %}

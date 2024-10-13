@@ -1,0 +1,13 @@
+{% extends './layout.html' %}
+
+{% block title %}{{data.titulo}}{% endblock %}
+
+{% block body %}
+<h1>{{data.bienvenida}}</h1>
+    <ul>
+        {% for c in data.colores %}
+        <li>{{c}}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

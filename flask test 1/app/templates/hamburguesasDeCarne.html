@@ -1,0 +1,36 @@
+{% extends './layout.html' %}
+
+{% block title %} lista {% endblock %}
+
+{% block body %}
+
+<div>
+    <table class = "table">
+        <thead>
+            <tr>
+                <th scope="col"> nombre </th>
+                <th scope="col"> precio </th>
+                <th scope="col"> stock </th>
+                <th scope="col"> tipo de hamburguesa</th>
+                <th scope="col"></th-scope>
+            </tr>
+        </thead>
+        <tbody >
+            {% for h in data.hamburguesas %}
+                <tr>
+                    {% if h.tipoDeHamburguesa == 'carne'%}
+                    <td> {{h.nombre}} </td>'
+                    <td> {{h.precio}} </td>
+                    <td> {{h.stock}} </td>
+                    <td> {{h.tipoDeHamburguesa}} </td>
+                    <td> <a href="/editarHamburguesaget/{{h.id}}"> editar</a> </td>
+                    {%endif%}
+                </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+</div>
+
+
+{% endblock %}
